@@ -12,45 +12,45 @@ use Illuminate\View\View;
 class ProfileController extends Controller
 {
     /**
-     * Display the user's profile form.
+     * Display the seller's profile form.
      */
     public function edit(Request $request): View
     {
         return view('profile.edit', [
-            'user' => $request->user(),
+            'seller' => $request->seller(),
         ]);
     }
 
     /**
-     * Update the user's profile information.
+     * Update the seller's profile information.
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $request->seller()->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        if ($request->seller()->isDirty('email')) {
+            $request->seller()->email_verified_at = null;
         }
 
-        $request->user()->save();
+        $request->seller()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
     /**
-     * Delete the user's account.
+     * Delete the seller's account.
      */
     public function destroy(Request $request): RedirectResponse
     {
-        $request->validateWithBag('userDeletion', [
+        $request->validateWithBag('sellerDeletion', [
             'password' => ['required', 'current_password'],
         ]);
 
-        $user = $request->user();
+        $seller = $request->seller();
 
         Auth::logout();
 
-        $user->delete();
+        $seller->delete();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
