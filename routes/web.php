@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\SaleController;
+use Illuminate\Support\Facades\Mail;
 
 
 Route::get('/', function () {

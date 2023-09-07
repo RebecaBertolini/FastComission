@@ -44,6 +44,7 @@ class DailySalesReportCommand extends Command
 
             // Check for sales for this seller
             if ($sales->isNotEmpty()) {
+
                 // Send e-mail to seller
                 Mail::to($seller->email)->send(new DailySalesReport($seller, $sales, $reportDate));
             }

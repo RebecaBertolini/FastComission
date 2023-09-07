@@ -13,14 +13,16 @@ class DailySalesReport extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $seller;
     public $sales;
     public $reportDate;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($sales, $reportDate)
+    public function __construct($seller, $sales, $reportDate)
     {
+        $this->seller = $seller;
         $this->sales = $sales;
         $this->reportDate = $reportDate;
     }
