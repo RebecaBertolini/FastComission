@@ -1,8 +1,8 @@
-<h1 align="center">
-    <img alt="Habits" title="" src=".assets/image1.png" />
-</h1>
+<h3 align="center">
+    <img alt="FastComission" title="" src="assets/image1.png" />
+</h3>
 
-### Descrição do projeto
+# Descrição do projeto
 
 FastCommission é uma aplicação que permite que o vendedor usuário possa se cadastrar ou ser cadastrado pelo usuário administrador e consiga realizar o cadastro das suas vendas, registrando valor, data e comissão com base na comissão atrelada ao usuário.
 
@@ -21,19 +21,19 @@ Este projeto foi desenvolvido como requisito para o processo seletivo de Pessoa 
 	🚀 Projeto finalizado 🚀
 </h4>
 
-### Layout do projeto
+# Layout do projeto
 
 <p align="center">
-  <img alt="fastCommission" title="fastCommission image" src=".assets/image2.png" width="400px">
+  <img alt="fastCommission" title="fastCommission image" src="assets/image2.png" width="400px">
 
-  <img alt="fastCommission" title="fastCommission image" src=".github/image3.png" width="400px">
+  <img alt="fastCommission" title="fastCommission image" src="assets/image3.png" width="400px">
  
-  <img alt="fastCommission" title="fastCommission image" src=".github/image4.png" width="400px">
+  <img alt="fastCommission" title="fastCommission image" src="assets/image4.png" width="400px">
 
-  <img alt="fastCommission" title="fastCommission image email" src=".github/image5.png" width="400px">
+  <img alt="fastCommission" title="fastCommission image email" src="assets/image5.png" width="400px">
 </p>
 
-[#requisitos]## Pré-requisitos
+# Pré-requisitos
 
 Antes de começar a utilizar o FastCommission, certifique-se de atender aos seguintes requisitos:
 
@@ -41,7 +41,7 @@ Antes de começar a utilizar o FastCommission, certifique-se de atender aos segu
 
 -   PHP: O projeto foi desenvolvido usando PHP na versão 8.2.4. Certifique-se de ter o PHP instalado em seu ambiente. Você pode verificar a versão instalada com o comando php -v.
 
--   XAMPP: Recomendamos o uso do XAMPP na versão 1.4.11 ou superior para configurar o servidor web e banco de dados local. Você pode baixar o XAMPP em https://www.apachefriends.org/index.html.
+-   XAMPP: Recomendado o uso do XAMPP na versão 1.4.11 ou superior para configurar o servidor web e banco de dados local. Você pode baixar o XAMPP em https://www.apachefriends.org/index.html.
 
 -   Composer: Você precisará do Composer na versão 2.6.2 ou superior para gerenciar as dependências do PHP. Você pode instalá-lo seguindo as instruções em https://getcomposer.org/download/.
 
@@ -66,14 +66,16 @@ DB_PASSWORD=
 
 A aplicação utiliza o serviço MailGun para o envio de e-mails.O serviço possui um cadastro gratuito para utilização e você poderá configurar a conexão com o MailGun no arquivo .env. Exemplo de configuração:
 
+```bash
 MAIL_MAILER=mailgun
 MAIL_HOST=smtp.mailgun.org
 MAILGUN_DOMAIN= seu domínio aqui
 MAILGUN_SECRET= chave API aqui
 MAIL_FROM_ADDRESS="fastcommission@app.com"
 MAIL_FROM_NAME="${APP_NAME}"
+```
 
-### Execução das Migrações
+### Execução das Migrations
 
 xecute as migrações do banco de dados para criar as tabelas necessárias:
 
@@ -90,6 +92,7 @@ php artisan db:seed --class=AdminUserSeeder
 Usuário de administrador padrão:
 
 E-mail: admin@admin.com
+
 Senha: admin123
 
 ### Configuração da CRON
