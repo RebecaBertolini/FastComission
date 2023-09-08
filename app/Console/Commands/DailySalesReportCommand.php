@@ -3,11 +3,6 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\DailySalesReport;
-use App\Models\Seller;
-use App\Models\Sale;
-use Carbon\Carbon;
 
 class DailySalesReportCommand extends Command
 {
@@ -30,54 +25,5 @@ class DailySalesReportCommand extends Command
      */
     public function handle()
     {
-        // Get all Sellers but Admin
-        $sellers = Seller::where('is_admin', '=', false)->with('sales')->get();
-
-        // Get today date
-        $reportDate = Carbon::now()->format('Y-m-d');
-
-
-
-
-        $count = count($sellers);
-
-        for ($i = 0; $i < $count; $i++) {
-            $seller = $sellers[$i];
-
-
-
-            // Obtenha as vendas do vendedor para hoje
-            $sales = Sale::where('seller_id', '=', $seller->id)
-                ->whereDate('sale_date', $reportDate)
-                ->get();
-
-
-            // Inicialize as variáveis para o cálculo da comissão e o preço total da venda
-            $totalCommission = 0;
-            $totalSalePrice = 0;
-
-            for ($j = 0; $j < count($sales); $j++) {
-                $sale = $sales[$j];
-
-                // Calcule a comissão para cada venda
-                $commission = $sale->sale_price * ($sale->commission / 100);
-                $totalCommission += $commission;
-
-                $salePrice = $sale->sale_price;
-                $totalSalePrice += $salePrice;
-            }
-
-            // Formate os valores da comissão e do preço total da venda
-            $totalCommission = number_format($totalCommission, 2, ',', '');
-            $totalSalePrice = number_format($totalSalePrice, 2, ',', '');
-
-            $reportDate = Carbon::now()->format('d-m-Y');
-
-
-            // Send mail if there are sales
-            if ($sales->count() > 0) {
-                Mail::to($seller->email)->send(new DailySalesReport($seller, $sales, $reportDate, $totalCommission, $totalSalePrice));
-            }
-        }
     }
 }
