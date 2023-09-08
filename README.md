@@ -75,27 +75,48 @@ Ajuste também a configuração para execução das filas de acordo com sua pref
 QUEUE_CONNECTION=database
 ```
 
+### Instalação das dependências
+
+```bash
+composer install
+```
+Depois:
+```bash
+npm install
+```
+
 ### Execução das Migrations
 
-Execute as migrações do banco de dados para criar as tabelas necessárias:
+Execute as migrações do banco de dados para criar as tabelas necessárias (não esqueça de iniciar o banco de dados antes):
 
 ```bash
 php artisan migrate
 ```
 
-### Alimentação do Banco de Dados
+### Alimentação do Banco de Dados com o usuário Admin
 
 ```bash
 php artisan db:seed --class=AdminUserSeeder
 ```
 
-Usuário de administrador padrão:
+Usuário administrador padrão:
 
 E-mail: admin@admin.com
 
 Senha: admin123
 
-Por padrão, o sistema criará os usuários Vendedores com a senha "trocar123", caso queira acessar um Vendedor criado, basta usar o mesmo e-mail e a senha citada.
+Por padrão, o sistema criará os usuários Vendedores com a senha "trocar123", caso queira acessar um Vendedor criado, basta usar a senha citada.
+
+### Starte e projeto
+
+Em terminais diferentes rode:
+```bash
+php artisan serve
+```
+
+```bash
+npm run dev
+```
 
 ### Configuração da CRON
 
@@ -120,6 +141,8 @@ Execute o seguinte comando para iniciar a execução do Job:
 ```bash
 php artisan schedule:work
 ```
+
+Após o primeiro enviom poderá parar a execução. Não se esqueça de incluir o e-mail receptor no MailGun ou o host utilizado para que o envio seja bem suscedido.
 
 Agora o FastCommission está configurado e pronto para ser usado 🚀
 
