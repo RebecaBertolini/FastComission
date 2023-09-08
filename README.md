@@ -95,6 +95,8 @@ E-mail: admin@admin.com
 
 Senha: admin123
 
+Por padrão, o sistema criará os usuários Vendedores com a senha "trocar123", caso queira acessar um Vendedor criado, basta usar o mesmo e-mail e a senha citada.
+
 ### Configuração da CRON
 
 Para agendar o envio diário de e-mails, o projeto utiliza o Laravel Scheduler. O agendamento padrão envia os e-mails diariamente ao final do dia. No entanto, se desejar realizar o envio instantâneo, siga estas instruções:
