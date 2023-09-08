@@ -23,6 +23,8 @@ class Seller extends Authenticatable
         'name',
         'email',
         'password',
+        'commission',
+        'is_admin',
     ];
 
     /**

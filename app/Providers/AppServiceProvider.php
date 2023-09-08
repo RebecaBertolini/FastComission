@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Validator::extend('valid_comission', function ($attribute, $value, $parameters, $validator) {
+            // Use uma expressão regular para validar a comissão
+            return preg_match('/^\d+(\.\d{1,2})?$/', $value);
+        });
     }
 }

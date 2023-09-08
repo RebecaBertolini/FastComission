@@ -16,15 +16,19 @@ class DailySalesReport extends Mailable
     public $seller;
     public $sales;
     public $reportDate;
+    public $totalSalePrice;
+    public $totalComission;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($seller, $sales, $reportDate)
+    public function __construct($seller, $sales, $reportDate, $totalComission, $totalSalePrice)
     {
         $this->seller = $seller;
         $this->sales = $sales;
         $this->reportDate = $reportDate;
+        $this->totalComission = $totalComission;
+        $this->totalSalePrice = $totalSalePrice;
     }
 
     /**

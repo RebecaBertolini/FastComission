@@ -1,45 +1,17 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Perfil do vendedor') }}
+            Olá, {{ $seller->name  }}
         </h2>
     </x-slot>
 
     <div class="py-12">
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="w-full flex items-center justify-between px-6 bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
-                <form action="{{ route('seller.update',  $seller->id) }}" method="POST">
-                    @method('PUT')
-                    @csrf
 
-                    <div class="p-6 text-gray-900">
-                        <label for="">Nome</label>
-                        <input type="text" placeholder="Digite o nome" value="{{ $seller->name }}" name="name">
-                    </div>
-                    <div class="p-6 text-gray-900">
-                        <label for="">E-mail</label>
-                        <input type="text" placeholder="Digite o e-mail" value="{{ $seller->email }}" name="email">
-                    </div>
-                    <div class="p-6 text-gray-900">
-                        <label for="">Comissão</label>
-                        @error ('commission')
-                        <p>{{ $message }}</p>
-                        @enderror
-                        <input type="number" step="0.01" min="0" value="{{ $seller->commission }}" placeholder="8.5" name="commission"> %
-                    </div>
-                    <button>Salvar</button>
-                </form>
-                <div class="w-full text-center">Comissão total atual: {{ $totalCommission }}</div>
-                <form action="{{ route( 'seller.destroy', $seller )}}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button>Excluir</button>
-                </form>
-            </div>
-
+            <h3>Cadastrar nova venda</h3>
             <div class="w-full px-6 bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
-                <h3>Cadastrar nova venda</h3>
+
                 <form action="{{ route('sales.store') }}" method="POST">
                     @csrf
                     <div class="p-6 text-gray-900">
@@ -56,6 +28,7 @@
                     <input type="hidden" name="seller_id" value="{{ $seller->id }}">
                     <button>Cadastrar venda</button>
                 </form>
+                <div class="w-full text-center">Comissão total atual: {{ $totalCommission }}</div>
             </div>
             <h3>Registro de vendas</h3>
             <div class="w-full px-6 bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">

@@ -8,7 +8,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rule;
 
 
 class SellerController extends Controller
@@ -24,12 +23,16 @@ class SellerController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . Seller::class],
+            'commission' => ['required', 'string', 'max:5', 'valid_commission'],
+        ], [
+            'commission.valid_commission' => 'Use ponto como separador.',
         ]);
 
-        $seller = Seller::create([
+        Seller::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make('trocar123'),
+            'commission' => $request->commission,
         ]);
 
         return redirect()->route('dashboard');
@@ -37,24 +40,55 @@ class SellerController extends Controller
 
     public function edit($seller)
     {
-        // Busque o vendedor com base no ID
+
+        // Get Seller by ID with sales
         $seller = Seller::with('sales')->find($seller);
 
-        return view('seller.edit', compact('seller'));
+        //Create new array with sales commission
+
+
+
+        $salesWithCommissionArray = [];
+        $totalCommission = 0;
+
+        foreach ($seller->sales as $sale) {
+
+            //calculates the total Seller commission
+            $commission = $sale->sale_price * ($sale->commission / 100);
+            $totalCommission += $commission;
+
+            $formatedSaleDate = \Carbon\Carbon::parse($sale->sale_date)->format('d/m/Y');
+
+            //Create new array with sales commission
+            $saleWithCommission = [
+                'id' => $sale->id,
+                'sale_date' => $formatedSaleDate,
+                'sale_price' => $sale->sale_price,
+                'commission' => $sale->commission,
+                'value_commission' => $commission
+            ];
+
+            $salesWithCommissionArray[] = $saleWithCommission;
+        }
+
+
+        $totalCommission = number_format($totalCommission, 2, ',', '');
+
+
+        return view('seller.edit', compact('seller', 'totalCommission', 'salesWithCommissionArray'));
     }
 
     public function update($seller, Request $request)
     {
         $seller = Seller::findOrFail($seller);
 
-        $data = $request->all();
+        $newSeller = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'commission' => $request->commission,
+        ];
 
-        $validatedData = $request->validate([
-            'name' => ['sometimes', 'string', 'max:255'],
-            'email' => ['sometimes', 'string', 'email', 'max:255', Rule::unique('sellers')->ignore($seller->id)],
-        ]);
-
-        $seller->update($validatedData);
+        $seller->update($newSeller);
 
         return redirect()->route('seller.edit', ['id' => $seller->id]);
     }

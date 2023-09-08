@@ -20,6 +20,7 @@
                     {{ $seller->name }}
                 </div>
                 <a href="{{ route('seller.edit', $seller->id )}}">Editar</a>
+
             </div>
             @endforeach
             @endif

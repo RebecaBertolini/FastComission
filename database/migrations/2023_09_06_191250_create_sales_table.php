@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('seller_id')->constrained()->cascadeOnDelete();
             $table->date('sale_date');
             $table->decimal('sale_price', 10, 2);
-            $table->decimal('comission', 5, 2)->default(8.5);
+            $table->decimal('commission', 5, 2)->default(8.5);
             $table->timestamps();
         });
     }
