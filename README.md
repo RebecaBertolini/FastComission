@@ -12,11 +12,6 @@ A aplicação também está configurada para realizar envios de e-mails diariame
 
 Este projeto foi desenvolvido como requisito para o processo seletivo de Pessoa Desenvolvedora PHP Junior na TRAY.
 
-<p align="center">
- <a href="#sobre">Sobre</a> •
- <a href="#layout">Layout do Projeto</a> •
-</p>
-
 <h4 align="center"> 
 	🚀 Projeto finalizado 🚀
 </h4>
