@@ -1,66 +1,130 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1 align="center">
+    <img alt="Habits" title="" src=".assets/image1.png" />
+</h1>
+
+### Descrição do projeto
+
+FastCommission é uma aplicação que permite que o vendedor usuário possa se cadastrar ou ser cadastrado pelo usuário administrador e consiga realizar o cadastro das suas vendas, registrando valor, data e comissão com base na comissão atrelada ao usuário.
+
+O usuário administrador poderá ainda cadastrar vendedores, editar, listar e excluir, incluir ou excluir vendas para cada vendedor.
+
+A aplicação também está configurada para realizar envios de e-mails diariamente ao final do dia, contendo um relatório de todas as vendas registradas no dia por aquele vendedor, o valor total das vendas e o valor total da comissão sobre as vendas.
+
+Este projeto foi desenvolvido como requisito para o processo seletivo de Pessoa Desenvolvedora PHP Junior na TRAY.
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+ <a href="#sobre">Sobre</a> •
+ <a href="#layout">Layout do Projeto</a> •
 </p>
 
-## About Laravel
+<h4 align="center"> 
+	🚀 Projeto finalizado 🚀
+</h4>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Layout do projeto
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center">
+  <img alt="fastCommission" title="fastCommission image" src=".assets/image2.png" width="400px">
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+  <img alt="fastCommission" title="fastCommission image" src=".github/image3.png" width="400px">
+ 
+  <img alt="fastCommission" title="fastCommission image" src=".github/image4.png" width="400px">
 
-## Learning Laravel
+  <img alt="fastCommission" title="fastCommission image email" src=".github/image5.png" width="400px">
+</p>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+[#requisitos]## Pré-requisitos
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Antes de começar a utilizar o FastCommission, certifique-se de atender aos seguintes requisitos:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Ambiente de desenvolvimento:
 
-## Laravel Sponsors
+-   PHP: O projeto foi desenvolvido usando PHP na versão 8.2.4. Certifique-se de ter o PHP instalado em seu ambiente. Você pode verificar a versão instalada com o comando php -v.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+-   XAMPP: Recomendamos o uso do XAMPP na versão 1.4.11 ou superior para configurar o servidor web e banco de dados local. Você pode baixar o XAMPP em https://www.apachefriends.org/index.html.
 
-### Premium Partners
+-   Composer: Você precisará do Composer na versão 2.6.2 ou superior para gerenciar as dependências do PHP. Você pode instalá-lo seguindo as instruções em https://getcomposer.org/download/.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+-   Node.js: A aplicação utiliza Node.js na versão v18.16.1 ou superior. Certifique-se de ter o Node.js instalado em seu sistema. Você pode verificar a versão com o comando node -v.
 
-## Contributing
+-   Breeze: O projeto utiliza o Breeze para a instalação das dependências do frontend. Após instalar o Node.js, execute o seguinte comando para configurar o frontend: npm install && npm run dev.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Configuração do Banco de Dados
 
-## Code of Conduct
+Antes de executar a aplicação, configure a conexão com o banco de dados no arquivo .env localizado na raiz do projeto. Exemplo de configuração:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=fastcomission
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Security Vulnerabilities
+### Configuração para envio dos e-mails
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+A aplicação utiliza o serviço MailGun para o envio de e-mails.O serviço possui um cadastro gratuito para utilização e você poderá configurar a conexão com o MailGun no arquivo .env. Exemplo de configuração:
 
-## License
+MAIL_MAILER=mailgun
+MAIL_HOST=smtp.mailgun.org
+MAILGUN_DOMAIN= seu domínio aqui
+MAILGUN_SECRET= chave API aqui
+MAIL_FROM_ADDRESS="fastcommission@app.com"
+MAIL_FROM_NAME="${APP_NAME}"
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Execução das Migrações
+
+xecute as migrações do banco de dados para criar as tabelas necessárias:
+
+```bash
+php artisan migrate
+```
+
+### Alimentação do Banco de Dados
+
+```bash
+php artisan db:seed --class=AdminUserSeeder
+```
+
+Usuário de administrador padrão:
+
+E-mail: admin@admin.com
+Senha: admin123
+
+### Configuração da CRON
+
+Para agendar o envio diário de e-mails, o projeto utiliza o Laravel Scheduler. O agendamento padrão envia os e-mails diariamente ao final do dia. No entanto, se desejar realizar o envio instantâneo, siga estas instruções:
+
+1. Abra o arquivo App\Console\Kernel.php.
+
+2. Altere a linha:
+
+```bash
+$schedule->job(new SendDaylyEmailsJob())->dailyAt('00:00');
+```
+
+Para:
+
+```bash
+$schedule->job(new SendDaylyEmailsJob())->everyMinute();
+```
+
+Execute o seguinte comando para iniciar a execução do Job:
+
+```bash
+php artisan schedule:work
+```
+
+Agora o FastCommission está configurado e pronto para ser usado 🚀
+
+### Tecnologias utilizadas
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+-   [Laravel](https://laravel.com)
+-   [PHP](https://nodejs.org/en/)
+-   [MySQL](https://pt-br.reactjs.org/)
+-   [Tailwind](https://reactnative.dev/)
+
+Feito com ❤️ por Rebeca Bertolini 👋🏽 [Entre em contato!](https://www.linkedin.com/in/rebeca-bertolini-spósito-544048200/)
