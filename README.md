@@ -74,6 +74,11 @@ MAILGUN_SECRET= chave API aqui
 MAIL_FROM_ADDRESS="fastcommission@app.com"
 MAIL_FROM_NAME="${APP_NAME}"
 ```
+Ajuste também a configuração para execução das filas de acordo com sua preferência, exemplo com uso do banco de dados local:
+
+```bash
+QUEUE_CONNECTION=database
+```
 
 ### Execução das Migrations
 
