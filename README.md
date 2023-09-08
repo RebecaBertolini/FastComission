@@ -77,7 +77,7 @@ QUEUE_CONNECTION=database
 
 ### Execução das Migrations
 
-xecute as migrações do banco de dados para criar as tabelas necessárias:
+Execute as migrações do banco de dados para criar as tabelas necessárias:
 
 ```bash
 php artisan migrate
