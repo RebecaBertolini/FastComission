@@ -46,6 +46,8 @@ Antes de começar a utilizar o FastCommission, certifique-se de atender aos segu
 
 ### Configuração do Banco de Dados
 
+Crie um arquivo `.env` na raiz do projeto se ele não existir. Você pode copiar o arquivo `.env.example` como ponto de partida.
+
 Antes de executar a aplicação, configure a conexão com o banco de dados no arquivo .env localizado na raiz do projeto. Exemplo de configuração:
 
 ```bash
@@ -74,6 +76,15 @@ Ajuste também a configuração para execução das filas de acordo com sua pref
 ```bash
 QUEUE_CONNECTION=database
 ```
+
+### Configuração da Chave de Aplicação (APP_KEY)
+
+Execute o seguinte comando para gerar uma nova chave de aplicação:
+
+```bash
+php artisan key:generate
+```
+A chave gerada será automaticamente adicionada ao arquivo `.env`. Certifique-se de que a APP_KEY no arquivo `.env` foi atualizada com a nova chave gerada.
 
 ### Instalação das dependências
 
