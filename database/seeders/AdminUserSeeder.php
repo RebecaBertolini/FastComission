@@ -17,8 +17,8 @@ class AdminUserSeeder extends Seeder
     {
         Seller::create([
             'name' => 'Admin',
-            'email' => 'rebeca.bertolinii@gmail.com',
-            'password' => Hash::make('12345678'),
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('admin123'),
             'is_admin' => true,
         ]);
     }

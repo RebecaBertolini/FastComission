@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\SaleRequest;
 use App\Models\Sale;
 use App\Models\Seller;
 
 class SaleController extends Controller
 {
-    public function store(Request $request)
+    public function store(SaleRequest $request)
     {
 
         $sellerAdmin = Auth()->user()->is_admin;

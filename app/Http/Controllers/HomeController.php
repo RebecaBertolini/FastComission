@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use App\Models\Seller;
 
 class HomeController extends Controller
@@ -13,13 +11,12 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::id()) {
+
             $userAdmin = Auth()->user()->is_admin;
 
             if ($userAdmin) {
 
-                $sellers = DB::table('sellers')->where('is_admin', '=', false)->paginate(10);
-
-                return view('dashboard', ['sellers' => $sellers]);
+                return redirect('/dashboard');
             } else {
 
                 $seller = Auth()->user()->id;

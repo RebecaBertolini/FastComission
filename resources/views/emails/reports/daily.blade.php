@@ -22,7 +22,7 @@
             <tr>
                 <td style="padding: 10px; text-align: center;">{{$sale->id}}</td>
                 <td style="padding: 10px; text-align: center;">R$ {{$sale->sale_price}}</td>
-                <td style="padding: 10px; text-align: center;">{{$sale->comission}} %</td>
+                <td style="padding: 10px; text-align: center;">{{$sale->commission}} %</td>
             </tr>
             @endforeach
         </table>
@@ -34,7 +34,7 @@
             </tr>
             <tr style="background-color: #EBE7FA;">
                 <th colspan="2" style="padding: 10px; text-align: center;">Total à receber</th>
-                <td style="padding: 10px; text-align: center;">R$ {{ $totalComission }}</td>
+                <td style="padding: 10px; text-align: center;">R$ {{ $totalCommission }}</td>
             </tr>
         </table>
     </div>

@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\SellerRequest;
 
 
 class SellerController extends Controller
@@ -17,16 +18,8 @@ class SellerController extends Controller
         return view('./seller/create');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(SellerRequest $request): RedirectResponse
     {
-
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . Seller::class],
-            'commission' => ['required', 'string', 'max:5', 'valid_commission'],
-        ], [
-            'commission.valid_commission' => 'Use ponto como separador.',
-        ]);
 
         Seller::create([
             'name' => $request->name,
@@ -58,7 +51,7 @@ class SellerController extends Controller
             $totalCommission += $commission;
 
             $formatedSaleDate = \Carbon\Carbon::parse($sale->sale_date)->format('d/m/Y');
-
+            $commission = number_format($commission, 2, ',', '');
             //Create new array with sales commission
             $saleWithCommission = [
                 'id' => $sale->id,
@@ -78,7 +71,7 @@ class SellerController extends Controller
         return view('seller.edit', compact('seller', 'totalCommission', 'salesWithCommissionArray'));
     }
 
-    public function update($seller, Request $request)
+    public function update($seller, SellerRequest $request)
     {
         $seller = Seller::findOrFail($seller);
 
