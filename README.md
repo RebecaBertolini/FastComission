@@ -153,6 +153,12 @@ Execute o seguinte comando para iniciar a execução do Job:
 php artisan schedule:work
 ```
 
+ou
+
+```bash
+ php artisan queue:work
+```
+
 Após o primeiro enviom poderá parar a execução. Não se esqueça de incluir o e-mail receptor no MailGun ou o host utilizado para que o envio seja bem suscedido.
 
 Agora o FastCommission está configurado e pronto para ser usado 🚀
