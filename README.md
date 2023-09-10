@@ -36,7 +36,7 @@ Antes de começar a utilizar o FastCommission, certifique-se de atender aos segu
 
 -   PHP: O projeto foi desenvolvido usando PHP na versão 8.2.4. Certifique-se de ter o PHP instalado em seu ambiente. Você pode verificar a versão instalada com o comando php -v.
 
--   XAMPP: Recomendado o uso do XAMPP na versão 1.4.11 ou superior para configurar o servidor web e banco de dados local. Você pode baixar o XAMPP em https://www.apachefriends.org/index.html.
+-   XAMPP: Foi utilizado o XAMPP na versão 8.2.4 para configurar o servidor web e banco de dados local. Você pode baixar o XAMPP em https://www.apachefriends.org/index.html.
 
 -   Composer: Você precisará do Composer na versão 2.6.2 ou superior para gerenciar as dependências do PHP. Você pode instalá-lo seguindo as instruções em https://getcomposer.org/download/.
 
