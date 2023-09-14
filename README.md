@@ -6,7 +6,7 @@
 
 FastCommission é uma aplicação que permite que o vendedor usuário possa se cadastrar ou ser cadastrado pelo usuário administrador e consiga realizar o cadastro das suas vendas, registrando valor, data e comissão com base na comissão atrelada ao usuário.
 
-O usuário administrador poderá ainda cadastrar vendedores, editar, listar e excluir, incluir ou excluir vendas para cada vendedor.
+O usuário administrador poderá ainda cadastrar vendedores, editar, listar e excluir, além de incluir ou excluir vendas para cada vendedor.
 
 A aplicação também está configurada para realizar envios de e-mails diariamente ao final do dia, contendo um relatório de todas as vendas registradas no dia por aquele vendedor, o valor total das vendas e o valor total da comissão sobre as vendas.
 
