@@ -5,6 +5,10 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use App\Models\Seller;
+use Illuminate\Validation\Rules\Password;
+
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class SellerRequest extends FormRequest
 {
@@ -29,13 +33,14 @@ class SellerRequest extends FormRequest
             return [
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:' . Seller::class],
-                'commission' => ['required', 'string', 'max:5'],
+                'password' => ['nullable', Password::min(8)],
+                'commission' => ['required', 'numeric'],
             ];
         } else {
             return [
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', Rule::unique('sellers')->ignore($sellerId)],
-                'commission' => ['required', 'string', 'max:5'],
+                'commission' => ['required', 'numeric'],
             ];
         }
     }
@@ -50,5 +55,13 @@ class SellerRequest extends FormRequest
             'email' => 'Inclua um @.',
             'unique' => 'Já existe um vendedor cadastrado com este e-mail.'
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'message' => 'Erro de validação',
+            'errors' => $validator->errors(),
+        ], 422));
     }
 }
