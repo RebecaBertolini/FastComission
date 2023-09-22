@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\SellerResource;
-use Illuminate\Http\Request;
 use App\Models\Seller;
 use App\Http\Requests\SellerRequest;
 use Illuminate\Support\Facades\Hash;
@@ -32,7 +31,44 @@ class SellerController extends Controller
 
         $seller = Seller::create($data);
 
-        //retorna apenas os dados que deve retornar ao usar o resource criado
-        return new SellerResource($seller);
+
+        //retrurn specific data about seller
+        $newSeller = new SellerResource($seller);
+
+        //create the response sending the seller and the status code
+        $response = response()->json($newSeller, 201);
+
+        //send the location for API REST
+        $response->header('Location', '/api/sellers/' . $seller->id);
+
+        return $response;
+    }
+
+    public function update(SellerRequest $request, $id)
+    {
+
+        $seller = Seller::find($id);
+
+        $newSeller = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'commission' => $request->commission,
+        ];
+
+        $seller->update($newSeller);
+
+        return  response()->json([], 204);
+    }
+
+    public function destroy($id)
+    {
+
+        $seller = Seller::find($id);
+
+        $seller->delete();
+
+        return response()->json([
+            "message" => "Deletado com sucesso"
+        ], 204);
     }
 }

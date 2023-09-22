@@ -17,7 +17,7 @@ class SellerResource extends JsonResource
     {
         //especifica o que sera retornado
         return [
-            'indentify' => $this->id,
+            'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
             'commission' => $this->commission,
